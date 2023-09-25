@@ -62,11 +62,11 @@ const createPlace = async (req, res, next) => {
   if (!errors.isEmpty()) {
     return next(new HttpError("Invalid inputs passed, pls check ur data", 422));
   }
-  const { title, description, address } = req.body;
+  const { title, description, rating } = req.body;
   const createdPlace = new Place({
     title,
     description,
-    address,
+    rating,
     image: req.file.path,
     creator: req.userData.userId
   });
